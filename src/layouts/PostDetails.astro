@@ -28,9 +28,11 @@ const {
 
 const { Content } = await post.render();
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const ogImageUrl = typeof ogImage === "string" ? ogImage : ogImage?.src;
 const ogUrl = new URL(
-  ogImageUrl ?? `/posts/${slugifyStr(title)}.png`,
+  ogImageUrl ?? `${baseUrl}/posts/${slugifyStr(title)}.png`,
   Astro.url.origin
 ).href;
 
